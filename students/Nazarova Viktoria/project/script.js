@@ -22,29 +22,44 @@ const goods = [
       this.goods = [];
     }
 
-    fetchGoods() {
-
-    }
-
-    addGoods(){
-
-    }
-
-    deleteGoods(){
-
-    }
-
-    totalSum(){
-      
-    }
-
+    addQuantity() {
+      console.log('Adding quantity');
+      this.goods += 1;
   }
 
+    removeQuantity() {
+     console.log('Removing quantity');
+     this.goods += 1;
+}
 
-  totalSum{
-    let sum = 0;
-    this.goods.forEach(item => {
-      sum += item.price;
+    totalSum{
+     let sum = 0;
+     this.goods.forEach(item => {
+    sum += item.price;
     })
     return sum;
-  }
+}
+
+}
+
+
+
+
+
+let makeGETRequest = (url) => {
+    return new Promise((resolve, reject ) => {
+        let xhr = new XMLHttpRequest();
+
+        xhr.open('GET', url, true);
+        xhr.onreadystatechange = () => {
+            const r = xhr.responseText;      
+            resolve(r);  
+            reject(console.log('error'));    
+        }
+        xhr.send();
+    });
+}
+makeGETRequest();
+
+
+
